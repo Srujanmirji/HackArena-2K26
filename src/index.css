@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans antialiased overflow-x-hidden;
+  }
+
+  /* Ensure smooth scroll with offset for fixed navbar */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+/* Custom glowing text class */
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 59, 59, 0.7), 0 0 20px rgba(255, 123, 0, 0.5);
+}
+
+.box-glow {
+  box-shadow: 0 0 15px rgba(255, 59, 59, 0.2), inset 0 0 20px rgba(255, 123, 0, 0.05);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+}
+
+.box-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 59, 59, 0.4), inset 0 0 20px rgba(255, 123, 0, 0.1);
+  border: 1px solid rgba(255, 59, 59, 0.6);
+}
+
+/* Section divider glow line */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 59, 59, 0.3), rgba(255, 123, 0, 0.3), transparent);
+  margin: 0 auto;
+}
+
+/* Skeleton shimmer for progress bars */
+@keyframes skeleton-glow {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-glow {
+  animation: skeleton-glow 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030014;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff3b3b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7b00;
+}
