@@ -24,7 +24,7 @@ function App() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
-    <div className="min-h-screen bg-background text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-background text-white relative">
       {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
       <header>
         <Navbar />
