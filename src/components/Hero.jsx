@@ -1,4 +1,4 @@
-﻿import React, { Suspense, useRef } from 'react';
+﻿import React, { Suspense, useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid, Float, Stars, Text } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -43,7 +43,7 @@ const FloatingSymbols = () => {
     );
 };
 
-const Scene = () => {
+const Scene = ({ isTouch }) => {
     return (
         <>
             <fog attach="fog" args={['#030014', 10, 40]} />
@@ -71,19 +71,28 @@ const Scene = () => {
             <FloatingSymbols />
             <Stars radius={50} depth={50} count={3000} factor={4} saturation={1} fade speed={1} />
 
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+            <OrbitControls enableZoom={false} enablePan={false} enableRotate={!isTouch} autoRotate autoRotateSpeed={0.5} />
         </>
     );
 };
 
 const Hero = () => {
+    const [isTouch, setIsTouch] = useState(false);
+
+    useEffect(() => {
+        const checkTouch = () => {
+            setIsTouch(('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+        };
+        checkTouch();
+    }, []);
+
     return (
         <section id="home" aria-labelledby="hero-title" className="relative w-full min-h-[100dvh] flex items-center justify-center bg-background pb-20 pt-24 md:py-0 overflow-hidden">
             {/* 3D Background */}
-            <div className="absolute inset-0 z-0 pointer-events-none md:pointer-events-auto" aria-hidden="true">
+            <div className="absolute inset-0 z-0" style={{ pointerEvents: isTouch ? 'none' : 'auto' }} aria-hidden="true">
                 <Suspense fallback={<div className="w-full h-full bg-background flex items-center justify-center text-primary">Loading Arena...</div>}>
-                    <Canvas camera={{ position: [0, 2, 12], fov: 60 }} alpha={true}>
-                        <Scene />
+                    <Canvas camera={{ position: [0, 2, 12], fov: 60 }} alpha={true} style={{ touchAction: 'auto', pointerEvents: isTouch ? 'none' : 'auto' }}>
+                        <Scene isTouch={isTouch} />
                     </Canvas>
                 </Suspense>
             </div>
