@@ -79,9 +79,9 @@ const Scene = () => {
 
 const Hero = () => {
     return (
-        <section id="home" aria-labelledby="hero-title" className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <section id="home" aria-labelledby="hero-title" className="relative w-full h-[100dvh] flex items-center justify-center overflow-visible">
             {/* 3D Background */}
-            <div className="absolute inset-0 z-0" aria-hidden="true">
+            <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
                 <Suspense fallback={<div className="w-full h-full bg-background flex items-center justify-center text-primary">Loading Arena...</div>}>
                     <Canvas camera={{ position: [0, 2, 12], fov: 60 }}>
                         <Scene />
