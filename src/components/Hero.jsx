@@ -71,7 +71,7 @@ const Scene = () => {
             <FloatingSymbols />
             <Stars radius={50} depth={50} count={3000} factor={4} saturation={1} fade speed={1} />
 
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+            <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} autoRotate autoRotateSpeed={0.5} />
         </>
     );
 };
