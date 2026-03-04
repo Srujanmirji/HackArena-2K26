@@ -89,7 +89,7 @@ const Hero = () => {
             </div>
 
             {/* Foreground Content */}
-            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center select-none pointer-events-none">
+            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
 
                 {/* Logo */}
                 <motion.img
