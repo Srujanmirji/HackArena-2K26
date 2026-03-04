@@ -46,7 +46,6 @@ const FloatingSymbols = () => {
 const Scene = () => {
     return (
         <>
-            <color attach="background" args={['#030014']} />
             <fog attach="fog" args={['#030014', 10, 40]} />
             <ambientLight intensity={0.5} />
 
@@ -79,11 +78,11 @@ const Scene = () => {
 
 const Hero = () => {
     return (
-        <section id="home" aria-labelledby="hero-title" className="relative w-full h-[100dvh] flex items-center justify-center overflow-visible">
+        <section id="home" aria-labelledby="hero-title" className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-background">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
                 <Suspense fallback={<div className="w-full h-full bg-background flex items-center justify-center text-primary">Loading Arena...</div>}>
-                    <Canvas camera={{ position: [0, 2, 12], fov: 60 }}>
+                    <Canvas camera={{ position: [0, 2, 12], fov: 60 }} alpha={true}>
                         <Scene />
                     </Canvas>
                 </Suspense>
