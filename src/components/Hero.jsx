@@ -78,7 +78,7 @@ const Scene = () => {
 
 const Hero = () => {
     return (
-        <section id="home" aria-labelledby="hero-title" className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-background">
+        <section id="home" aria-labelledby="hero-title" className="relative w-full min-h-[100dvh] flex items-center justify-center bg-background pb-20 pt-24 md:py-0 overflow-hidden">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
                 <Suspense fallback={<div className="w-full h-full bg-background flex items-center justify-center text-primary">Loading Arena...</div>}>
@@ -95,7 +95,7 @@ const Hero = () => {
                 <motion.img
                     src="/LOGO.png"
                     alt="HackArena 2K26 Logo"
-                    className="w-64 h-64 sm:w-80 sm:h-80 md:w-[28rem] md:h-[28rem] object-contain mx-auto -mb-8 md:-mb-14"
+                    className="w-40 h-40 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] object-contain mx-auto -mb-4 md:-mb-14"
                     initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
                     animate={{
                         opacity: 1,
@@ -121,11 +121,11 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, ease: "easeOut" }}
-                    className="mb-1"
+                    className="mb-1 mt-2 md:mt-0"
                 >
                     <time
                         dateTime="2026-03-24"
-                        className="inline-block px-4 py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm text-primary font-medium tracking-widest text-sm uppercase mb-2 shadow-[0_0_15px_rgba(255,59,59,0.2)]"
+                        className="inline-block px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-primary/50 bg-primary/10 backdrop-blur-sm text-primary font-medium tracking-widest text-xs md:text-sm uppercase mb-1 md:mb-2 shadow-[0_0_15px_rgba(255,59,59,0.2)]"
                     >
                         March 24, 2026
                     </time>
@@ -133,7 +133,7 @@ const Hero = () => {
 
                 <motion.h1
                     id="hero-title"
-                    className="text-4xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-primary to-secondary mb-3 md:mb-4 drop-shadow-[0_0_25px_rgba(255,59,59,0.8)]"
+                    className="text-4xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-primary to-secondary mb-2 md:mb-4 drop-shadow-[0_0_25px_rgba(255,59,59,0.8)]"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
