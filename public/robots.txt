@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hackarena2k26.online/sitemap.xml
+Host: https://hackarena2k26.online

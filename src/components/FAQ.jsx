@@ -76,7 +76,7 @@ const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <section id="faq" className="py-16 md:py-20 relative z-10 w-full">
+        <section id="faq" aria-labelledby="faq-heading" className="py-16 md:py-20 relative z-10 w-full">
             <div className="max-w-3xl mx-auto px-5">
 
                 <div className="text-center mb-10 md:mb-14">
@@ -95,6 +95,7 @@ const FAQ = () => {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.6 }}
                         className="text-3xl md:text-5xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400"
+                        id="faq-heading"
                     >
                         Frequently Asked Questions
                     </motion.h2>

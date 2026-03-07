@@ -19,7 +19,7 @@ const cardVariants = {
 
 const About = () => {
     return (
-        <section id="about" className="py-16 md:py-24 relative z-10 overflow-hidden">
+        <section id="about" aria-labelledby="about-heading" className="py-16 md:py-24 relative z-10 overflow-hidden">
             <div className="max-w-4xl mx-auto px-5 text-center">
                 <motion.h2
                     initial={{ opacity: 0, y: 30 }}
@@ -27,6 +27,7 @@ const About = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6 }}
                     className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400"
+                    id="about-heading"
                 >
                     About The Event
                 </motion.h2>
