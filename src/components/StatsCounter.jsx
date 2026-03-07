@@ -34,7 +34,7 @@ const AnimatedNumber = ({ value, prefix = '', suffix = '', isVisible }) => {
     const formatted = value >= 1000 ? count.toLocaleString('en-IN') : count;
 
     return (
-        <span className="text-2xl sm:text-3xl md:text-5xl font-black text-white tabular-nums">
+        <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black text-white tabular-nums">
             {prefix}{formatted}{suffix}
         </span>
     );
@@ -52,7 +52,7 @@ const StatsCounter = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6"
                 >
                     {stats.map((stat, index) => (
                         <motion.div
@@ -61,7 +61,7 @@ const StatsCounter = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="text-center p-5 md:p-6 rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/5 hover:border-white/15 transition-colors"
+                            className="text-center p-3 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/5 hover:border-white/15 transition-colors"
                         >
                             <div className={`${stat.color} mx-auto mb-3`}>
                                 {stat.icon}

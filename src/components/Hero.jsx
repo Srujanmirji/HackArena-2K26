@@ -1,8 +1,19 @@
-﻿import React, { Suspense, useRef, useState, useEffect } from 'react';
+﻿import React, { Suspense, useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid, Float, Stars, Text } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import CountdownTimer from './CountdownTimer';
+
+const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const check = () => setIsMobile(window.innerWidth < 768);
+        check();
+        window.addEventListener('resize', check);
+        return () => window.removeEventListener('resize', check);
+    }, []);
+    return isMobile;
+};
 
 // Animated Glowing Ring
 const GlowingRing = ({ radius = 10, thickness = 0.5, speed = 1, color = "#ff3b3b", opacity = 1 }) => {
@@ -43,33 +54,35 @@ const FloatingSymbols = () => {
     );
 };
 
-const Scene = ({ isTouch }) => {
+const Scene = ({ isTouch, isMobile }) => {
+    const starCount = isMobile ? 1000 : 3000;
+    const gridSize = isMobile ? 30 : 50;
     return (
         <>
-            <fog attach="fog" args={['#030014', 10, 40]} />
+            <fog attach="fog" args={['#030014', 10, isMobile ? 30 : 40]} />
             <ambientLight intensity={0.5} />
 
             {/* Grid Floor */}
             <Grid
                 position={[0, -8, 0]}
-                args={[50, 50]}
+                args={[gridSize, gridSize]}
                 cellSize={1}
                 cellThickness={1}
                 cellColor="#ff3b3b"
                 sectionSize={5}
                 sectionThickness={1.5}
                 sectionColor="#ff7b00"
-                fadeDistance={40}
+                fadeDistance={isMobile ? 25 : 40}
                 fadeStrength={1.5}
             />
 
             {/* Glowing Rings Hierarchy */}
             <GlowingRing radius={6} thickness={0.05} speed={0.5} color="#ff3b3b" opacity={0.3} />
             <GlowingRing radius={8} thickness={0.02} speed={0.8} color="#ff7b00" opacity={0.2} />
-            <GlowingRing radius={12} thickness={0.08} speed={-0.3} color="#ff3b3b" opacity={0.1} />
+            {!isMobile && <GlowingRing radius={12} thickness={0.08} speed={-0.3} color="#ff3b3b" opacity={0.1} />}
 
-            <FloatingSymbols />
-            <Stars radius={50} depth={50} count={3000} factor={4} saturation={1} fade speed={1} />
+            {!isMobile && <FloatingSymbols />}
+            <Stars radius={50} depth={50} count={starCount} factor={4} saturation={1} fade speed={1} />
 
             <OrbitControls enableZoom={false} enablePan={false} enableRotate={!isTouch} autoRotate autoRotateSpeed={0.5} />
         </>
@@ -78,6 +91,7 @@ const Scene = ({ isTouch }) => {
 
 const Hero = () => {
     const [isTouch, setIsTouch] = useState(false);
+    const isMobile = useIsMobile();
 
     useEffect(() => {
         const checkTouch = () => {
@@ -91,8 +105,13 @@ const Hero = () => {
             {/* 3D Background */}
             <div className="absolute inset-0 z-0" style={{ pointerEvents: isTouch ? 'none' : 'auto' }} aria-hidden="true">
                 <Suspense fallback={<div className="w-full h-full bg-background flex items-center justify-center text-primary">Loading Arena...</div>}>
-                    <Canvas camera={{ position: [0, 2, 12], fov: 60 }} alpha={true} style={{ touchAction: 'auto', pointerEvents: isTouch ? 'none' : 'auto' }}>
-                        <Scene isTouch={isTouch} />
+                    <Canvas
+                        camera={{ position: [0, 2, isMobile ? 14 : 12], fov: isMobile ? 55 : 60 }}
+                        alpha={true}
+                        dpr={isMobile ? 1 : Math.min(window.devicePixelRatio, 2)}
+                        style={{ touchAction: 'auto', pointerEvents: isTouch ? 'none' : 'auto' }}
+                    >
+                        <Scene isTouch={isTouch} isMobile={isMobile} />
                     </Canvas>
                 </Suspense>
             </div>
@@ -104,7 +123,7 @@ const Hero = () => {
                 <motion.img
                     src="/LOGO.png"
                     alt="HackArena 2K26 Logo"
-                    className="w-40 h-40 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] object-contain mx-auto -mb-4 md:-mb-14"
+                    className="w-32 h-32 xs:w-40 xs:h-40 sm:w-64 sm:h-64 md:w-[28rem] md:h-[28rem] object-contain mx-auto -mb-2 sm:-mb-4 md:-mb-14"
                     initial={{ opacity: 0, scale: 0.3, rotate: -15 }}
                     animate={{
                         opacity: 1,
@@ -142,7 +161,7 @@ const Hero = () => {
 
                 <motion.h1
                     id="hero-title"
-                    className="text-4xl sm:text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-primary to-secondary mb-2 md:mb-4 drop-shadow-[0_0_25px_rgba(255,59,59,0.8)]"
+                    className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-primary to-secondary mb-2 md:mb-4 drop-shadow-[0_0_25px_rgba(255,59,59,0.8)] leading-tight"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
@@ -155,7 +174,7 @@ const Hero = () => {
                 </p>
 
                 <motion.p
-                    className="text-base sm:text-lg md:text-2xl font-light text-gray-300 tracking-wide mb-6 md:mb-8 text-glow max-w-2xl mx-auto"
+                    className="text-sm sm:text-base md:text-xl lg:text-2xl font-light text-gray-300 tracking-wide mb-4 sm:mb-6 md:mb-8 text-glow max-w-2xl mx-auto px-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
@@ -163,7 +182,7 @@ const Hero = () => {
                     Code. Compete. Conquer. — The Ultimate Full-Stack Showdown
                 </motion.p>
                 <motion.p
-                    className="text-sm sm:text-base md:text-lg text-gray-500 tracking-widest uppercase font-semibold mb-6"
+                    className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 tracking-widest uppercase font-semibold mb-4 sm:mb-6"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
@@ -197,7 +216,7 @@ const Hero = () => {
             {/* Scroll Indicator */}
             <motion.div
                 aria-hidden="true"
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none"
+                className="absolute bottom-4 sm:bottom-10 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 1 }}

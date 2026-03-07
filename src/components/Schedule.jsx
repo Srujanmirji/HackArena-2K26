@@ -85,7 +85,7 @@ const Schedule = () => {
                                     </div>
                                 </div>
 
-                                <div className="md:text-right font-mono text-sm md:text-lg text-gray-300 bg-black/50 px-4 py-2 rounded-lg md:rounded-xl tabular-nums">
+                                <div className="md:text-right font-mono text-xs sm:text-sm md:text-lg text-gray-300 bg-black/50 px-3 sm:px-4 py-2 rounded-lg md:rounded-xl tabular-nums break-all sm:break-normal">
                                     {item.time}
                                 </div>
                             </motion.div>

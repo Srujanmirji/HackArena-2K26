@@ -25,7 +25,7 @@ const Footer = () => {
     ];
 
     return (
-        <footer className="relative z-10 bg-gradient-to-b from-[#050118] to-black border-t border-primary/20 pt-20 pb-8 overflow-hidden w-full">
+        <footer className="relative z-10 bg-gradient-to-b from-[#050118] to-black border-t border-primary/20 pt-12 sm:pt-20 pb-6 sm:pb-8 overflow-hidden w-full">
             {/* Top glow line */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-60 shadow-[0_0_30px_rgba(255,59,59,1)]"></div>
 
@@ -40,7 +40,7 @@ const Footer = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-center mb-12"
+                    className="text-center mb-8 sm:mb-12"
                 >
                     <h3 className="text-2xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-400 mb-3">
                         Our Team
@@ -50,7 +50,7 @@ const Footer = () => {
 
                 {/* Leadership Row — Principal & HOD */}
                 <motion.div
-                    className="grid grid-cols-2 gap-3 md:gap-5 mb-8 md:mb-10 max-w-xl mx-auto"
+                    className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-5 mb-6 sm:mb-8 md:mb-10 max-w-xl mx-auto"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -66,7 +66,7 @@ const Footer = () => {
                             className={`relative group`}
                         >
                             <div className={`absolute -inset-0.5 bg-gradient-to-br ${leader.gradient} rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                            <div className={`relative text-center p-4 md:p-6 bg-white/[0.03] backdrop-blur-sm rounded-xl md:rounded-2xl border ${leader.border} transition-all duration-300`}>
+                            <div className={`relative text-center p-3 sm:p-4 md:p-6 bg-white/[0.03] backdrop-blur-sm rounded-lg sm:rounded-xl md:rounded-2xl border ${leader.border} transition-all duration-300`}>
                                 <div className={`w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl ${leader.iconBg} flex items-center justify-center mx-auto mb-2 md:mb-3`}>
                                     {leader.icon}
                                 </div>
@@ -109,7 +109,7 @@ const Footer = () => {
                 </motion.div>
 
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto mb-10 md:mb-14"
+                    className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-14"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -144,7 +144,7 @@ const Footer = () => {
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12" />
 
                 {/* Bottom Info Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-8 mb-8 sm:mb-12">
 
                     {/* Brand Info */}
                     <div className="col-span-1 space-y-5">
