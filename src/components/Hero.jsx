@@ -187,7 +187,7 @@ const Hero = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    Organized by <span className="text-gray-300">CSE Dept, JCET</span>
+                    Organized by <span className="text-gray-300">Dept. of CSE, JCET</span>
                 </motion.p>
 
                 {/* Countdown Timer */}

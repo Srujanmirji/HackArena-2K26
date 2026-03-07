@@ -11,6 +11,7 @@ import PrizePool from './components/PrizePool';
 import Rules from './components/Rules';
 import FAQ from './components/FAQ';
 import VenueMap from './components/VenueMap';
+import Sponsors from './components/Sponsors';
 import StatsCounter from './components/StatsCounter';
 import WhatsAppButton from './components/WhatsAppButton';
 import SplashScreen from './components/SplashScreen';
@@ -55,6 +56,8 @@ function App() {
         <FAQ />
         <SectionDivider />
         <VenueMap />
+        <SectionDivider />
+        <Sponsors />
       </main>
       <Footer />
       <WhatsAppButton />
