@@ -89,7 +89,7 @@ const Footer = () => {
                         <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-primary/15 flex items-center justify-center mb-2 md:mb-3 text-primary">
                             <Sparkles size={22} />
                         </div>
-                        <p className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase mb-1">Faculty Co-ordinator</p>
+                        <p className="text-xs font-black tracking-[0.2em] text-white uppercase mb-1">Faculty Co-ordinator</p>
                         <p className="text-lg md:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">Prof. Amruta Naveen</p>
                     </div>
                 </motion.div>
@@ -104,7 +104,7 @@ const Footer = () => {
                 >
                     <div className="inline-flex items-center gap-2 mb-5">
                         <Users size={16} className="text-gray-500" />
-                        <p className="text-[10px] font-bold tracking-[0.2em] text-gray-500 uppercase">Student Co-ordinators</p>
+                        <p className="text-xs font-black tracking-[0.2em] text-white uppercase">Student Co-ordinators</p>
                     </div>
                 </motion.div>
 
