@@ -144,7 +144,7 @@ const Footer = () => {
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12" />
 
                 {/* Bottom Info Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-8 mb-8 sm:mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8 mb-8 sm:mb-12">
 
                     {/* Brand Info */}
                     <div className="col-span-1 space-y-5">
@@ -165,6 +165,15 @@ const Footer = () => {
                             <MapPin size={16} className="flex-shrink-0" />
                             <span>Hubballi, Karnataka, India</span>
                         </div>
+                    </div>
+
+                    {/* Resources */}
+                    <div className="col-span-1 space-y-4">
+                        <h4 className="text-sm font-bold tracking-wider text-white uppercase">Resources</h4>
+                        <a href="https://drive.google.com/drive/folders/1uz7LyN1myKvZXqWJpGRxHfPLV4-ZTHKi?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 hover:text-primary transition-colors text-sm w-max">
+                            <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <span>Round 1 PPT Template</span>
+                        </a>
                     </div>
 
                     {/* Contact & Socials */}

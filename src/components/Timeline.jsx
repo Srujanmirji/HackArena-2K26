@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const timelineEvents = [
     { id: 1, title: 'Registration', date: '5 March - 16 March', isPast: false },
-    { id: 2, title: 'PPT Submission', date: '10 March - 18 March', isPast: false },
+    { id: 2, title: 'PPT Submission', date: '10 March - 18 March', isPast: false, link: 'https://drive.google.com/drive/folders/1uz7LyN1myKvZXqWJpGRxHfPLV4-ZTHKi?usp=sharing', linkText: 'Download PPT Template' },
     { id: 3, title: 'Round 1 Results', date: '21 March', isPast: false },
     { id: 4, title: 'Hackathon Day', date: '24 March', isPast: false, isFinal: true },
 ];
@@ -85,6 +85,12 @@ const Timeline = () => {
                                                     <p className="text-sm text-gray-200 font-bold">
                                                         {event.date}
                                                     </p>
+                                                    {event.link && (
+                                                        <a href={event.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center justify-center px-4 py-1.5 md:px-5 md:py-2 bg-white/5 border border-white/20 hover:border-[#ff8a65] text-gray-300 hover:text-white rounded-lg transition-all duration-300 group shadow-[0_4px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_15px_rgba(255,138,101,0.3)] text-xs md:text-sm font-semibold">
+                                                            <svg className="w-4 h-4 mr-2 text-[#ff8a65] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                                            {event.linkText}
+                                                        </a>
+                                                    )}
 
                                                     {event.isFinal && <div className="absolute -top-[14px] -right-[14px] w-7 h-7 bg-[#ff5252] rounded-full opacity-90 shadow-[0_0_15px_rgba(255,82,82,0.8)] z-30"></div>}
                                                 </div>
@@ -107,6 +113,12 @@ const Timeline = () => {
                                                 <p className="text-sm text-gray-200 font-bold">
                                                     {event.date}
                                                 </p>
+                                                {event.link && (
+                                                    <a href={event.link} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center justify-center px-4 py-1.5 md:px-5 md:py-2 bg-white/5 border border-white/20 hover:border-[#ff8a65] text-gray-300 hover:text-white rounded-lg transition-all duration-300 group shadow-[0_4px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_15px_rgba(255,138,101,0.3)] text-xs md:text-sm font-semibold">
+                                                        <svg className="w-4 h-4 mr-2 text-[#ff8a65] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                                        {event.linkText}
+                                                    </a>
+                                                )}
 
                                                 {event.isFinal && <div className="absolute -top-[14px] -right-[14px] w-7 h-7 bg-[#ff5252] rounded-full opacity-90 shadow-[0_0_15px_rgba(255,82,82,0.8)] z-30"></div>}
                                             </div>
