@@ -190,6 +190,28 @@ const Hero = () => {
                     Organized by <span className="text-gray-300">Dept. of CSE, JCET</span>
                 </motion.p>
 
+                {/* Powered by Unstop */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.55 }}
+                    className="flex justify-center mb-4 sm:mb-6 pointer-events-auto"
+                >
+                    <a
+                        href="https://unstop.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.05] border border-white/10 hover:border-[#1B3A6B]/50 backdrop-blur-sm transition-all duration-300 hover:bg-white/[0.08]"
+                    >
+                        <span className="text-gray-400 text-xs sm:text-sm font-medium">Powered by</span>
+                        <img
+                            src="/Unstop-Logo.png"
+                            alt="Unstop"
+                            className="h-4 sm:h-5 object-contain brightness-0 invert opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                        />
+                    </a>
+                </motion.div>
+
                 {/* Countdown Timer */}
                 <CountdownTimer />
 

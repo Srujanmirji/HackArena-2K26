@@ -11,20 +11,12 @@ import { Handshake } from 'lucide-react';
 // ============================================================
 
 const sponsors = [
-    // ── Add your sponsors here ──
-    // Example:
-    // {
-    //     name: 'Google',
-    //     subtitle: 'Title Sponsor',
-    //     logo: '/sponsors/google.png',
-    //     url: 'https://google.com',
-    // },
-    // {
-    //     name: 'GitHub',
-    //     subtitle: 'Dev Partner',
-    //     logo: '/sponsors/github.png',
-    //     url: 'https://github.com',
-    // },
+    {
+        name: 'Unstop',
+        subtitle: 'Platform Partner',
+        logo: '/Unstop-Logo.png',
+        url: 'https://unstop.com',
+    },
 ];
 
 const containerVariants = {

@@ -205,6 +205,29 @@ const Footer = () => {
                     </div>
                 </div>
 
+                {/* Powered by Unstop */}
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className="flex justify-center mb-8"
+                >
+                    <a
+                        href="https://unstop.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-[#1B3A6B]/50 transition-all duration-300 hover:bg-white/[0.06]"
+                    >
+                        <span className="text-gray-500 text-sm font-medium">Powered by</span>
+                        <img
+                            src="/Unstop-Logo.png"
+                            alt="Unstop"
+                            className="h-6 object-contain group-hover:scale-105 transition-transform duration-300"
+                        />
+                    </a>
+                </motion.div>
+
                 {/* Copyright & Credit */}
                 <div className="border-t border-white/5 pt-6 text-center space-y-2">
                     <p className="text-gray-600 text-xs">
