@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Clock, CalendarDays, Laptop } from 'lucide-react';
+import { MapPin, Clock, CalendarDays, Laptop, AlertTriangle, Trophy, Gift } from 'lucide-react';
 
 const containerVariants = {
     hidden: {},
@@ -82,6 +82,55 @@ const EventDetails = () => {
                         </motion.article>
                     ))}
                 </motion.div>
+
+                {/* Important Notices */}
+                <motion.div
+                    className="mt-10 space-y-4"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    variants={containerVariants}
+                >
+                    {/* No Accommodation */}
+                    <motion.div
+                        variants={cardVariants}
+                        className="flex items-center gap-4 bg-red-950/40 backdrop-blur-md border border-red-500/20 rounded-xl p-4 md:p-5 hover:border-red-500/40 transition-all duration-300 group"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-red-500/15 flex items-center justify-center text-red-400 border border-red-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                            <AlertTriangle size={24} />
+                        </div>
+                        <p className="text-sm md:text-base text-red-200 font-semibold">
+                            ⚠️ No Accommodation will be provided for participants.
+                        </p>
+                    </motion.div>
+
+                    {/* Winners Announcement */}
+                    <motion.div
+                        variants={cardVariants}
+                        className="flex items-center gap-4 bg-amber-950/30 backdrop-blur-md border border-amber-500/20 rounded-xl p-4 md:p-5 hover:border-amber-500/40 transition-all duration-300 group"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-400 border border-amber-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                            <Trophy size={24} />
+                        </div>
+                        <p className="text-sm md:text-base text-amber-200 font-semibold">
+                            🏆 Winners of the Offline Hackathon will be announced on <span className="text-amber-300">26th March 2026</span>.
+                        </p>
+                    </motion.div>
+
+                    {/* Prize Distribution */}
+                    <motion.div
+                        variants={cardVariants}
+                        className="flex items-center gap-4 bg-emerald-950/30 backdrop-blur-md border border-emerald-500/20 rounded-xl p-4 md:p-5 hover:border-emerald-500/40 transition-all duration-300 group"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 border border-emerald-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                            <Gift size={24} />
+                        </div>
+                        <p className="text-sm md:text-base text-emerald-200 font-semibold">
+                            🎁 Prize Distribution will be held on <span className="text-emerald-300">28th March 2026</span>.
+                        </p>
+                    </motion.div>
+                </motion.div>
+
             </div>
         </section>
     );
