@@ -3,9 +3,24 @@ import { motion } from 'framer-motion';
 import { Clock } from 'lucide-react';
 
 const scheduleData = [
-    { time: '8:30 AM - 9:00 AM', event: 'Inauguration', phase: 'Morning' },
-    { time: '9:30 AM - 4:30 PM', event: 'Hackathon Development Phase', phase: 'Action' },
-    { time: '5:00 PM - 11:59 PM', event: 'Online Debugging Round', phase: 'Evening' },
+    { 
+        time: '8:30 AM - 9:00 AM', 
+        event: 'Inauguration', 
+        phase: 'Morning',
+        description: 'Kick-off ceremony and briefing of rules.'
+    },
+    { 
+        time: '9:30 AM - 4:30 PM', 
+        event: 'Hackathon Development Phase', 
+        phase: 'Action',
+        description: '7 hours of intense building in private GitHub repositories assigned to teams.'
+    },
+    { 
+        time: '5:00 PM - 8:00 AM', 
+        event: 'Cross-Fire Debugging Hunt (Online)', 
+        phase: 'Overnight',
+        description: 'Conducted online from home! Repositories are made public & swapped! Teams must audit assigned repos and report bugs.'
+    },
 ];
 
 const containerVariants = {
@@ -82,6 +97,11 @@ const Schedule = () => {
                                         <h3 className="text-base md:text-2xl font-bold text-white group-hover:text-primary transition-colors">
                                             {item.event}
                                         </h3>
+                                        {item.description && (
+                                            <p className="text-xs md:text-sm text-gray-400 mt-1 max-w-md">
+                                                {item.description}
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
 
