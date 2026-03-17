@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const TARGET_DATE = new Date('2026-03-18T09:00:00+05:30').getTime();
+const TARGET_DATE = new Date('2026-03-17T23:59:59+05:30').getTime();
 
 const getTimeLeft = () => {
     const now = Date.now();

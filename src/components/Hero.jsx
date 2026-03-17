@@ -1,4 +1,4 @@
-﻿import React, { Suspense, useRef, useState, useEffect, useMemo } from 'react';
+import React, { Suspense, useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid, Float, Stars, Text } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -213,7 +213,17 @@ const Hero = () => {
                 </motion.div>
 
                 {/* Countdown Timer */}
-                <CountdownTimer />
+                <div className="flex flex-col items-center mb-0">
+                    <motion.span 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                        className="text-primary font-bold mb-3 md:mb-4 uppercase tracking-[0.3em] text-[10px] md:text-xs bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 backdrop-blur-sm shadow-[0_0_15px_rgba(255,59,59,0.1)]"
+                    >
+                        Registration Closes In
+                    </motion.span>
+                    <CountdownTimer />
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
