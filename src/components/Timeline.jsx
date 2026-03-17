@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const timelineEvents = [
-    { id: 1, title: 'Registration', date: '5 March - 17 March, 11:59 PM', isPast: false },
+    { id: 1, title: 'Registration', date: '5 March - 17 March, 11:59 PM', isPast: true },
     { id: 2, title: 'PPT Submission', date: '10 March - 19 March', isPast: false, link: 'https://drive.google.com/drive/folders/1uz7LyN1myKvZXqWJpGRxHfPLV4-ZTHKi?usp=sharing', linkText: 'Download PPT Template' },
     { id: 3, title: 'Round 1 Results', date: '21 March', isPast: false },
     { id: 4, title: 'Hackathon Day', date: '24 March', isPast: false, isFinal: true },

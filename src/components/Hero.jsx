@@ -2,7 +2,7 @@ import React, { Suspense, useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid, Float, Stars, Text } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import CountdownTimer from './CountdownTimer';
+
 
 const useIsMobile = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -212,35 +212,16 @@ const Hero = () => {
                     </a>
                 </motion.div>
 
-                {/* Countdown Timer */}
-                <div className="flex flex-col items-center mb-0">
-                    <motion.span 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="text-primary font-bold mb-3 md:mb-4 uppercase tracking-[0.3em] text-[10px] md:text-xs bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 backdrop-blur-sm shadow-[0_0_15px_rgba(255,59,59,0.1)]"
-                    >
-                        Registration Closes In
-                    </motion.span>
-                    <CountdownTimer />
-                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="pointer-events-auto"
+                    className="mt-4 pointer-events-none opacity-60"
                 >
-                    <a
-                        href="https://unstop.com/o/dR1h2SJ?utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Logged_out_user"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Register for HackArena 2026 on Unstop"
-                        className="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold text-white transition-all duration-200 bg-primary font-pj rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[0_0_20px_rgba(255,59,59,0.5)] hover:shadow-[0_0_40px_rgba(255,59,59,0.8)] hover:scale-105"
-                    >
-                        Register on Unstop
-                        <div className="absolute inset-0 bg-white/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    </a>
+                    <div className="relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold text-white/50 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
+                        Registration Closed
+                    </div>
                 </motion.div>
 
             </div>

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -58,14 +58,9 @@ const Navbar = () => {
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                             PPT Template
                         </a>
-                        <a
-                            href="https://unstop.com/o/dR1h2SJ?utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Logged_out_user"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="px-5 py-2 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_10px_rgba(255,59,59,0.3)] hover:shadow-[0_0_20px_rgba(255,59,59,0.6)] font-bold text-sm"
-                        >
-                            Register Now
-                        </a>
+                        <span className="px-5 py-2 rounded-full border border-white/10 text-white/40 font-bold text-sm bg-white/5 cursor-not-allowed">
+                            Registration Closed
+                        </span>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -114,14 +109,9 @@ const Navbar = () => {
                                 PPT Template
                             </a>
                             <div className="pt-4 w-full flex justify-center">
-                                <a
-                                    href="https://unstop.com/o/dR1h2SJ?utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Logged_out_user"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="px-8 py-3 rounded-full bg-primary text-white font-bold text-center border-none shadow-[0_0_15px_rgba(255,59,59,0.4)]"
-                                >
-                                    Register on Unstop
-                                </a>
+                                <span className="px-8 py-3 rounded-full bg-white/5 text-white/40 font-bold text-center border border-white/10 w-full cursor-not-allowed">
+                                    Registration Closed
+                                </span>
                             </div>
                         </div>
                     </motion.div>
