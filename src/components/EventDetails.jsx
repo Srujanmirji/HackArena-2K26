@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Clock, CalendarDays, Laptop, AlertTriangle, Trophy, Gift } from 'lucide-react';
 
@@ -101,6 +101,19 @@ const EventDetails = () => {
                         </div>
                         <p className="text-sm md:text-base text-red-200 font-semibold">
                             ⚠️ No Accommodation will be provided for participants.
+                        </p>
+                    </motion.div>
+
+                    {/* No Refund Policy */}
+                    <motion.div
+                        variants={cardVariants}
+                        className="flex items-center gap-4 bg-orange-950/30 backdrop-blur-md border border-orange-500/20 rounded-xl p-4 md:p-5 hover:border-orange-500/40 transition-all duration-300 group"
+                    >
+                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-orange-500/15 flex items-center justify-center text-orange-400 border border-orange-500/20 group-hover:scale-110 transition-transform flex-shrink-0">
+                            <AlertTriangle size={24} />
+                        </div>
+                        <p className="text-sm md:text-base text-orange-200 font-semibold">
+                            ⚠️ No refund of the registration fee will be provided if you are not shortlisted in the PPT round.
                         </p>
                     </motion.div>
 
