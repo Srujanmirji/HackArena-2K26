@@ -8,6 +8,7 @@ const rulesList = [
     { icon: <IdCard size={24} className="text-blue-400" />, text: "All participants must carry a valid college ID card during the offline event." },
     { icon: <Sparkles size={24} className="text-purple-400" />, text: "AI tools are allowed, but their use must be fully disclosed during evaluation." },
     { icon: <FileWarning size={24} className="text-red-500" />, text: "Any form of plagiarism will lead to immediate disqualification." },
+    { icon: <ShieldAlert size={24} className="text-orange-400" />, text: "If you don't get shortlisted in the PPT round, there will be no refund of the registration fee." },
 ];
 
 const containerVariants = {

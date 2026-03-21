@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const timelineEvents = [
     { id: 1, title: 'Registration', date: '5 March - 17 March, 11:59 PM', isPast: true },
-    { id: 2, title: 'PPT Submission', date: '10 March - 19 March', isPast: false, link: 'https://drive.google.com/drive/folders/1uz7LyN1myKvZXqWJpGRxHfPLV4-ZTHKi?usp=sharing', linkText: 'Download PPT Template' },
+    { id: 2, title: 'PPT Submission', date: '10 March - 19 March', isPast: false, link: 'https://drive.google.com/drive/folders/1uz7LyN1myKvZXqWJpGRxHfPLV4-ZTHKi?usp=sharing', linkText: 'Download PPT Template', warningText: "*If you don't get shortlisted in the PPT round, there will be no refund" },
     { id: 3, title: 'Round 1 Results', date: '21 March', isPast: false },
     { id: 4, title: 'Hackathon Day', date: '24 March', isPast: false, isFinal: true },
 ];
@@ -91,6 +91,12 @@ const Timeline = () => {
                                                             {event.linkText}
                                                         </a>
                                                     )}
+                                                    
+                                                    {event.warningText && (
+                                                        <p className="mt-3 text-xs md:text-sm text-red-400 font-medium italic">
+                                                            {event.warningText}
+                                                        </p>
+                                                    )}
 
                                                     {event.isFinal && <div className="absolute -top-[14px] -right-[14px] w-7 h-7 bg-[#ff5252] rounded-full opacity-90 shadow-[0_0_15px_rgba(255,82,82,0.8)] z-30"></div>}
                                                 </div>
@@ -118,6 +124,12 @@ const Timeline = () => {
                                                         <svg className="w-4 h-4 mr-2 text-[#ff8a65] group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                                         {event.linkText}
                                                     </a>
+                                                )}
+                                                
+                                                {event.warningText && (
+                                                    <p className="mt-3 text-xs md:text-sm text-red-400 font-medium italic">
+                                                        {event.warningText}
+                                                    </p>
                                                 )}
 
                                                 {event.isFinal && <div className="absolute -top-[14px] -right-[14px] w-7 h-7 bg-[#ff5252] rounded-full opacity-90 shadow-[0_0_15px_rgba(255,82,82,0.8)] z-30"></div>}
