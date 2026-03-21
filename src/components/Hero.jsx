@@ -2,6 +2,7 @@ import React, { Suspense, useRef, useState, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Grid, Float, Stars, Text } from '@react-three/drei';
 import { motion } from 'framer-motion';
+import { Trophy } from 'lucide-react';
 
 
 const useIsMobile = () => {
@@ -213,13 +214,35 @@ const Hero = () => {
                 </motion.div>
 
 
+                {/* Results Banner */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.6, type: "spring", bounce: 0.5 }}
+                    className="mt-2 sm:mt-4 pointer-events-auto"
+                >
+                    <a
+                        href="/results"
+                        className="relative inline-flex items-center justify-center px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-2xl font-black text-white bg-primary rounded-2xl transition-all duration-300 shadow-[0_0_40px_rgba(255,59,59,0.5)] hover:shadow-[0_0_60px_rgba(255,123,0,0.6)] group overflow-hidden border border-primary/50 hover:border-secondary hover:scale-105 active:scale-95"
+                    >
+                        {/* Glow Sweep */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                        
+                        <span className="relative z-10 flex items-center gap-3 tracking-widest uppercase">
+                            <Trophy size={28} className="text-secondary animate-bounce delay-100" />
+                            Round 1 Results Out Now
+                        </span>
+                    </a>
+                </motion.div>
+
+                {/* Registration Closed label */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    className="mt-4 pointer-events-none opacity-60"
+                    transition={{ duration: 0.8, delay: 0.7 }}
+                    className="mt-8 pointer-events-none opacity-40 hover:opacity-100 transition-opacity"
                 >
-                    <div className="relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-bold text-white/50 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
+                    <div className="relative inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-2 text-sm md:text-base font-bold text-white/50 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm">
                         Registration Closed
                     </div>
                 </motion.div>

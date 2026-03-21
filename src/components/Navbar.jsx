@@ -10,11 +10,21 @@ const navLinks = [
     { name: 'Prizes', href: '#prizes' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Venue', href: '#venue' },
+    { name: 'Results', href: '/results' },
 ];
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    
+    const isHome = window.location.pathname === '/' || window.location.pathname === '';
+    
+    const getHref = (href) => {
+        if (href.startsWith('#') && !isHome) {
+            return '/' + href;
+        }
+        return href;
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,7 +42,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <div className="flex-shrink-0 flex items-center">
-                        <a href="#home" aria-label="Go to home section" className="flex gap-2 items-center">
+                        <a href={getHref('#home')} aria-label="Go to home section" className="flex gap-2 items-center">
                             <img src="/LOGO.png" alt="HackArena 2K26 Logo" className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(255,59,59,0.6)]" />
                             <span className="font-bold text-xl tracking-wider text-white">Hack<span className="text-primary">Arena</span></span>
                         </a>
@@ -43,8 +53,8 @@ const Navbar = () => {
                         {navLinks.map((link) => (
                             <a
                                 key={link.name}
-                                href={link.href}
-                                className="text-gray-300 hover:text-white hover:text-glow transition-all duration-300 text-sm font-medium"
+                                href={getHref(link.href)}
+                                className={`text-gray-300 hover:text-white hover:text-glow transition-all duration-300 text-sm font-medium ${link.name === 'Results' ? 'text-primary font-bold animate-pulse' : ''}`}
                             >
                                 {link.name}
                             </a>
@@ -92,9 +102,9 @@ const Navbar = () => {
                             {navLinks.map((link) => (
                                 <a
                                     key={link.name}
-                                    href={link.href}
+                                    href={getHref(link.href)}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:text-primary transition-colors text-center w-full"
+                                    className={`block px-3 py-3 text-base font-medium text-gray-300 hover:text-white hover:text-primary transition-colors text-center w-full ${link.name === 'Results' ? 'text-primary font-bold' : ''}`}
                                 >
                                     {link.name}
                                 </a>

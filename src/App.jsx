@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,6 +16,7 @@ import StatsCounter from './components/StatsCounter';
 import WhatsAppButton from './components/WhatsAppButton';
 import SplashScreen from './components/SplashScreen';
 import Footer from './components/Footer';
+import Results from './components/Results';
 
 const SectionDivider = () => (
   <div className="section-divider max-w-4xl" aria-hidden="true" />
@@ -23,15 +24,31 @@ const SectionDivider = () => (
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  const isResultsPage = currentPath === '/results';
 
   return (
     <div className="min-h-screen bg-background text-white relative">
-      {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      {showSplash && !isResultsPage && <SplashScreen onComplete={() => setShowSplash(false)} />}
       <header>
         <Navbar />
       </header>
-      <Hero />
-      <main
+      
+      {isResultsPage ? (
+        <Results />
+      ) : (
+        <>
+          <Hero />
+          <main
         id="main-content"
         className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         aria-label="HackArena 2026 event information"
@@ -59,8 +76,10 @@ function App() {
         <SectionDivider />
         <Sponsors />
       </main>
-      <Footer />
-      <WhatsAppButton />
+    </>
+  )}
+  <Footer />
+  <WhatsAppButton />
     </div>
   );
 }
