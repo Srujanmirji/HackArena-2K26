@@ -17,6 +17,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import SplashScreen from './components/SplashScreen';
 import Footer from './components/Footer';
 import Results from './components/Results';
+import ProblemStatements from './components/ProblemStatements';
 
 const SectionDivider = () => (
   <div className="section-divider max-w-4xl" aria-hidden="true" />
@@ -35,16 +36,19 @@ function App() {
   }, []);
 
   const isResultsPage = currentPath === '/results';
+  const isProblemStatementsPage = currentPath === '/problem-statements';
 
   return (
     <div className="min-h-screen bg-background text-white relative">
-      {showSplash && !isResultsPage && <SplashScreen onComplete={() => setShowSplash(false)} />}
+      {showSplash && !isResultsPage && !isProblemStatementsPage && <SplashScreen onComplete={() => setShowSplash(false)} />}
       <header>
         <Navbar />
       </header>
       
       {isResultsPage ? (
         <Results />
+      ) : isProblemStatementsPage ? (
+        <ProblemStatements />
       ) : (
         <>
           <Hero />
